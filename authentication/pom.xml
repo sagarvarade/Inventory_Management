@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.authentication</groupId>
 	<artifactId>authentication</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${authentication.version}</version>
 	<name>library</name>
 	<description>Demo project for Spring Boot</description>
 

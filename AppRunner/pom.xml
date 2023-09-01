@@ -8,6 +8,7 @@
 		<version>1.0.0</version>
 	</parent>
 	<artifactId>AppRunner</artifactId>
+	<version>${apprunner.version}</version>
 	<dependencies>
 		<dependency>
 			<groupId>commons-io</groupId>
