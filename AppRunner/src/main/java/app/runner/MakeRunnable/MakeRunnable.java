@@ -2,7 +2,11 @@ package app.runner.MakeRunnable;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -15,9 +19,30 @@ import org.apache.commons.io.FileUtils;
 public class MakeRunnable {
 
 	public static final String DEPLOY_DIRECTORY = "deployDirectory";
-
+	public static final String PARENT_DIRECTORY = new File(getCurrentFolderPath()).getParent();
 	public static void MakeRunnableFolder() {
-		Code_One();
+		boolean deleteFolder = ClearFolderFirst();
+		if(deleteFolder)
+			Code_One();
+	}
+
+	private static boolean ClearFolderFirst() {
+		Path dir = Paths.get(PARENT_DIRECTORY + "/" + DEPLOY_DIRECTORY);  
+        try {
+			Files
+			    .walk(dir)
+			    .sorted(Comparator.reverseOrder())
+			    .forEach(path -> {
+			        try {
+			            Files.delete(path);
+			        } catch (IOException e) {
+			            e.printStackTrace();
+			        }
+			    });
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return true;
 	}
 
 	private static void Code_One() {
@@ -32,7 +57,6 @@ public class MakeRunnable {
 	private static void createBatchFileForRunningThisApps(Map<String, String> jarsWithPath, String parentFolder) {
 		StringBuilder fileString = new StringBuilder();
 		fileString.append("@echo off\n");
-		
 
         SortedMap<String, String> sortedMap = new TreeMap<String,String>();
         

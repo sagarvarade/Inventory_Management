@@ -23,15 +23,15 @@
 		<module>apigateway</module>
 	</modules>
 
-	<properties>
-		
+	<properties>		
 		<maven.compiler.source>17</maven.compiler.source>
      	<maven.compiler.target>17</maven.compiler.target>
 		<spring-cloud.version>2022.0.1</spring-cloud.version>
 
-		<authentication.version>1.1.1</authentication.version>
-		<namingserver.version>1.1.1</namingserver.version>
-		<apprunner.version>1.1.1</apprunner.version>
 		<apigateway.version>1.1.1</apigateway.version>
+		<namingserver.version>2.1.1</namingserver.version>
+		<authentication.version>3.1.1</authentication.version>
+		<apprunner.version>4.1.1</apprunner.version>
+		
 	</properties>
 </project>
