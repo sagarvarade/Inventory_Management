@@ -19,6 +19,8 @@
 	<modules>
 		<module>authentication</module>
 		<module>namingserver</module>
+		<module>AppRunner</module>
+		<module>apigateway</module>
 	</modules>
 
 	<properties>
@@ -26,8 +28,10 @@
 		<maven.compiler.source>17</maven.compiler.source>
      	<maven.compiler.target>17</maven.compiler.target>
 		<spring-cloud.version>2022.0.1</spring-cloud.version>
-		
+
 		<authentication.version>1.1.1</authentication.version>
 		<namingserver.version>1.1.1</namingserver.version>
+		<AppRunner.version>1.1.1</AppRunner.version>
+		<apigateway.version>1.1.1</apigateway.version>
 	</properties>
 </project>

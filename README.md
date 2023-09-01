@@ -4,8 +4,11 @@ Inventory Management, Multi Module Spring Boot Project for learning purpose
 
 # Server Ports : 
 
-1. Authentication  : 7200
-1. Naming Server   : 7100  
+1. Authentication       : 7200
+2. Naming Server        : 7100
+3. API Gateway Server   : 7101  
+  
+
 
 
 
@@ -33,5 +36,5 @@ DELETE FROM `userinfo`;
 /*!40000 ALTER TABLE `userinfo` DISABLE KEYS */;
 INSERT INTO `userinfo` (`id`, `email`, `name`, `password`, `roles`) VALUES
 	(1, 'a@gmail.com', 'sagar', '$2a$10$zan24hGdotQG9VEOKNkQoO01Owv9GF5CIihhOGHgv5zNbF2HJrmBy', 'ROLE_ADMIN');
-	
+
 Username : sagar , password : sagar
