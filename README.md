@@ -4,7 +4,8 @@ Inventory Management, Multi Module Spring Boot Project for learning purpose
 
 # Server Ports : 
 
-1. Authentication  : 7001 
+1. Authentication  : 7200
+1. Naming Server   : 7100  
 
 
 

@@ -1,15 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-
+	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.4</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<version>3.0.2</version>
+		<relativePath />
 	</parent>
-
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Inventory_Management</groupId>
@@ -20,37 +18,16 @@
 	<description>Inventory_Management</description>
 	<modules>
 		<module>authentication</module>
+		<module>namingserver</module>
 	</modules>
 
-
 	<properties>
+		
+		<maven.compiler.source>17</maven.compiler.source>
+     	<maven.compiler.target>17</maven.compiler.target>
+		<spring-cloud.version>2022.0.1</spring-cloud.version>
+		
 		<authentication.version>1.1.1</authentication.version>
-		<spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
-		
-		<springcore.version>3.2.3.RELEASE</springcore.version>
+		<namingserver.version>1.1.1</namingserver.version>
 	</properties>
-
-
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${springcore.version}</version>
-			<scope>runtime</scope>
-		</dependency>
-		
-	</dependencies>
-
-
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 </project>
