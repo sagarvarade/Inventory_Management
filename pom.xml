@@ -20,15 +20,15 @@
 		<module>authentication</module>
 		<module>namingserver</module>
 		<module>AppRunner</module>
-		<module>apigateway</module>
+		<module>ApiGateway</module>
 	</modules>
 
 	<properties>		
 		<maven.compiler.source>17</maven.compiler.source>
      	<maven.compiler.target>17</maven.compiler.target>
 		<spring-cloud.version>2022.0.1</spring-cloud.version>
-
-		<apigateway.version>1.1.1</apigateway.version>
+		
+		<ApiGateway.version>1.1.1</ApiGateway.version>
 		<namingserver.version>2.1.1</namingserver.version>
 		<authentication.version>3.1.1</authentication.version>
 		<apprunner.version>4.1.1</apprunner.version>
