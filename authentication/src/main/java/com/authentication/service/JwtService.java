@@ -60,6 +60,9 @@ public class JwtService {
     }
 
     private String createToken(Map<String, Object> claims, String userName) {
+    	Map<String, Object> additionalClaims = new HashMap<>();
+    	additionalClaims.put("role", "admin");
+    	additionalClaims.put("customClaim", "someValue");
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(userName)
