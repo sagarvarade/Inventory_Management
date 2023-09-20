@@ -7,13 +7,13 @@ import AuthService from "./services/auth.service";
 
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Home from "./components/Home";
+//import Home from "./components/Home";
 import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
 
-// import AuthVerify from "./common/AuthVerify";
+//import AuthVerify from "./common/AuthVerify";
 import EventBus from "./common/EventBus";
 
 const App = () => {
@@ -26,8 +26,8 @@ const App = () => {
 
     if (user) {
       setCurrentUser(user);
-      setShowModeratorBoard(user.roles.includes("ROLE_MODERATOR"));
-      setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
+      setShowModeratorBoard(user.roles==='ROLE_USER');
+      setShowAdminBoard(user.roles==='ROLE_ADMIN');
     }
 
     EventBus.on("logout", () => {
@@ -46,91 +46,83 @@ const App = () => {
     setCurrentUser(undefined);
   };
 
-  // return (
-  //   <div>
-  //     <nav className="navbar navbar-expand navbar-dark bg-dark">
-  //       <Link to={"/"} className="navbar-brand">
-  //         bezKoder
-  //       </Link>
-  //       <div className="navbar-nav mr-auto">
-  //         <li className="nav-item">
-  //           <Link to={"/home"} className="nav-link">
-  //             Home
-  //           </Link>
-  //         </li>
+   return (
+     <div>
+       <nav className="navbar navbar-expand navbar-dark bg-dark">
+         <Link to={"/"} className="navbar-brand">
+         </Link>
+         <div className="navbar-nav mr-auto">
+           {showModeratorBoard && (
+             <li className="nav-item">
+               <Link to={"/mod"} className="nav-link">
+                 Moderator Board
+               </Link>
+             </li>
+           )}
+           
+           {showAdminBoard && (
+             <li className="nav-item">
+               <Link to={"/admin"} className="nav-link">
+                 Admin Board
+               </Link>
+             </li>
+           )}
 
-  //         {showModeratorBoard && (
-  //           <li className="nav-item">
-  //             <Link to={"/mod"} className="nav-link">
-  //               Moderator Board
-  //             </Link>
-  //           </li>
-  //         )}
+           {currentUser && (
+             <li className="nav-item">
+               <Link to={"/user"} className="nav-link">
+                 User
+               </Link>
+             </li>
+           )}
+         </div>
 
-  //         {showAdminBoard && (
-  //           <li className="nav-item">
-  //             <Link to={"/admin"} className="nav-link">
-  //               Admin Board
-  //             </Link>
-  //           </li>
-  //         )}
+         {currentUser ? (
+           <div className="navbar-nav ml-auto">
+             <li className="nav-item">
+               <Link to={"/profile"} className="nav-link">
+                 {currentUser.username}
+               </Link>
+             </li>
+             <li className="nav-item">
+               <a href="/login" className="nav-link" onClick={logOut}>
+                 LogOut
+               </a>
+             </li>
+           </div>
+         ) : (
+           <div className="navbar-nav ml-auto">
+             <li className="nav-item">
+               <Link to={"/login"} className="nav-link">
+                 Login
+               </Link>
+             </li>
 
-  //         {currentUser && (
-  //           <li className="nav-item">
-  //             <Link to={"/user"} className="nav-link">
-  //               User
-  //             </Link>
-  //           </li>
-  //         )}
-  //       </div>
+             <li className="nav-item">
+               <Link to={"/register"} className="nav-link">
+                 Sign Up
+               </Link>
+             </li>
+           </div>
+         )}
+       </nav>
 
-  //       {currentUser ? (
-  //         <div className="navbar-nav ml-auto">
-  //           <li className="nav-item">
-  //             <Link to={"/profile"} className="nav-link">
-  //               {currentUser.username}
-  //             </Link>
-  //           </li>
-  //           <li className="nav-item">
-  //             <a href="/login" className="nav-link" onClick={logOut}>
-  //               LogOut
-  //             </a>
-  //           </li>
-  //         </div>
-  //       ) : (
-  //         <div className="navbar-nav ml-auto">
-  //           <li className="nav-item">
-  //             <Link to={"/login"} className="nav-link">
-  //               Login
-  //             </Link>
-  //           </li>
+       <div className="container mt-3">
+         <Routes>
+           <Route exact path={"/"} element={<Login />} />
+           <Route exact path="/login" element={<Login />} />
+           <Route exact path="/register" element={<Register />} />
+           <Route exact path="/profile" element={<Profile />} />
+           <Route path="/user" element={<BoardUser />} />
+           <Route path="/mod" element={<BoardModerator />} />
+           <Route path="/admin" element={<BoardAdmin />} />
+         </Routes>
+       </div>
 
-  //           <li className="nav-item">
-  //             <Link to={"/register"} className="nav-link">
-  //               Sign Up
-  //             </Link>
-  //           </li>
-  //         </div>
-  //       )}
-  //     </nav>
-
-  //     <div className="container mt-3">
-  //       <Routes>
-  //         <Route exact path={"/"} element={<Home />} />
-  //         <Route exact path={"/home"} element={<Home />} />
-  //         <Route exact path="/login" element={<Login />} />
-  //         <Route exact path="/register" element={<Register />} />
-  //         <Route exact path="/profile" element={<Profile />} />
-  //         <Route path="/user" element={<BoardUser />} />
-  //         <Route path="/mod" element={<BoardModerator />} />
-  //         <Route path="/admin" element={<BoardAdmin />} />
-  //       </Routes>
-  //     </div>
-
-  //     {/* <AuthVerify logOut={logOut}/> */}
-  //   </div>
-  // );
-
+       {/* <AuthVerify logOut={logOut}/> */}
+     </div>
+   );
+/*
   return (
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
@@ -140,21 +132,25 @@ const App = () => {
       <div className="container mt-3">
         <Routes>
           <Route exact path={"/"} element={<Login />} />
-          <Route exact path={"/home"} element={<Home />} />
           <Route exact path="/login" element={<Login />} />
-          <Route exact path="/register" element={<Register />} />
           <Route exact path="/profile" element={<Profile />} />
-          <Route path="/user" element={<BoardUser />} />
-          <Route path="/mod" element={<BoardModerator />} />
-          <Route path="/admin" element={<BoardAdmin />} />
         </Routes>
       </div>
-
-      {/* <AuthVerify logOut={logOut}/> */}
-    </div>
-  )
-
+</div>
+      {/* <AuthVerify logOut={logOut}/>}
+    
+  )*/
 
 };
 
 export default App;
+
+
+//  <Route exact path={"/"} element={<Login />} />
+//  <Route exact path={"/home"} element={<Home />} />
+//  <Route exact path="/login" element={<Login />} />
+//  <Route exact path="/register" element={<Register />} />
+//  <Route exact path="/profile" element={<Profile />} />
+//  <Route path="/user" element={<BoardUser />} />
+//  <Route path="/mod" element={<BoardModerator />} />
+//  <Route path="/admin" element={<BoardAdmin />} />
