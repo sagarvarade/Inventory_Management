@@ -6,8 +6,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+
+import com.authentication.config.UserInfoUserDetailsService;
+import com.authentication.entity.UserInfo;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -20,6 +24,8 @@ public class JwtService {
 
 
     public static final String SECRET = "5367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A71347437";
+    @Autowired
+    private UserInfoUserDetailsService userInfoService;
 
 
     public String extractUsername(String token) {
@@ -60,9 +66,13 @@ public class JwtService {
     }
 
     private String createToken(Map<String, Object> claims, String userName) {
-    	Map<String, Object> additionalClaims = new HashMap<>();
-    	additionalClaims.put("role", "admin");
-    	additionalClaims.put("customClaim", "someValue");
+    	UserInfo user = userInfoService.loadUserDetails(userName).orElse(new UserInfo());
+    	
+    	claims.put("username", user.getName());
+    	claims.put("user_id", user.getId());
+    	claims.put("email", user.getEmail());
+    	claims.put("roles", user.getRoles());
+    	
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(userName)

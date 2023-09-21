@@ -21,6 +21,7 @@
 		<module>namingserver</module>
 		<module>AppRunner</module>
 		<module>ApiGateway</module>
+		<module>inventory_manager</module>
 	</modules>
 
 	<properties>		
@@ -32,6 +33,7 @@
 		<namingserver.version>2.1.1</namingserver.version>
 		<authentication.version>3.1.1</authentication.version>
 		<apprunner.version>4.1.1</apprunner.version>
+		<inventory_manger.version>5.1.1</inventory_manger.version>
 		
 	</properties>
 </project>
