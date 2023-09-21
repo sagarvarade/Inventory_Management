@@ -22,6 +22,7 @@
 		<module>AppRunner</module>
 		<module>ApiGateway</module>
 		<module>inventory_manager</module>
+		<module>Util</module>
 	</modules>
 
 	<properties>		
