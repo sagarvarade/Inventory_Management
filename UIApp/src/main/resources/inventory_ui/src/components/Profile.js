@@ -29,7 +29,7 @@ const Profile = () => {
     <div className="container">
       <header className="jumbotron">
         <h3>
-           Profile
+           Profile .............
         </h3>
       </header>
     </div>

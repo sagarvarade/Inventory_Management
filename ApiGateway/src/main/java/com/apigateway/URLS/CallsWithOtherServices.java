@@ -19,12 +19,12 @@ public class CallsWithOtherServices {
 
 	@Autowired
 	private Environment env;
-	
+
 	private String AUTH_URL;
-	
+
 	@PostConstruct
 	private void postConstruct() {
-	    this.AUTH_URL = env.getProperty("multiapp.authentication_service_url");
+		this.AUTH_URL = env.getProperty("multiapp.authentication_service_url");
 	}
 
 	public HttpResponse<String> checkToken(String token) {
