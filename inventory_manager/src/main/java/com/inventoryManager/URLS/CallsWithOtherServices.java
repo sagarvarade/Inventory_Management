@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import com.util.Token;
+
 @Component
 public class CallsWithOtherServices {
 	private Logger logger = LoggerFactory.getLogger(CallsWithOtherServices.class);
@@ -25,6 +27,7 @@ public class CallsWithOtherServices {
 					.header("Authorization", "Bearer " + token).GET().build();
 			HttpClient httpClient = HttpClient.newHttpClient();
 			HttpResponse<String> resp = httpClient.send(request, java.net.http.HttpResponse.BodyHandlers.ofString());
+			
 			return resp;
 		} catch (Exception e) {
 			e.printStackTrace();
