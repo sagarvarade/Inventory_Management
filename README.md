@@ -8,6 +8,8 @@ Inventory Management, Multi Module Spring Boot Project for learning purpose
 2. Naming Server        : 7100
 3. API Gateway Server   : 7000  
 4. Inventory Manager    : 7210
+5. Inventory Notification : 7220
+5. UI Application       : 7211
 
 
 
