@@ -9,4 +9,5 @@ public class InventoryNotificationApp {
 	public static void main(String[] args) {
 		SpringApplication.run(InventoryNotificationApp.class, args);
 	}
+	
 }
