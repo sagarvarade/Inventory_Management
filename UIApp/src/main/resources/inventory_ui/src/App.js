@@ -119,28 +119,8 @@ const App = () => {
            <Route path="/admin" element={<BoardAdmin />} />
          </Routes>
        </div>
-
-       {/* <AuthVerify logOut={logOut}/> */}
      </div>
    );
-/*
-  return (
-    <div>
-      <nav className="navbar navbar-expand navbar-dark bg-dark">
-         
-      </nav>
-
-      <div className="container mt-3">
-        <Routes>
-          <Route exact path={"/"} element={<Login />} />
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/profile" element={<Profile />} />
-        </Routes>
-      </div>
-</div>
-      {/* <AuthVerify logOut={logOut}/>}
-    
-  )*/
 
 };
 

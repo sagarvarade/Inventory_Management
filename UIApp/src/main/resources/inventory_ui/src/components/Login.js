@@ -45,8 +45,8 @@ const Login = () => {
 
     form.current.validateAll();
 
-    navigate("/profile");
-/*
+    //navigate("/profile");
+
     if (checkBtn.current.context._errors.length === 0) {
       AuthService.login(username, password).then(
         () => {
@@ -67,7 +67,7 @@ const Login = () => {
       );
     } else {
       setLoading(false);
-    }*/
+    }
   };
 
   return (

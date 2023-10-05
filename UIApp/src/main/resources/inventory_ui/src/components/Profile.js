@@ -3,7 +3,7 @@ import AuthService from "../services/auth.service";
 
 const Profile = () => {
   const currentUser = AuthService.getCurrentUser();
-/*
+
   return (
     <div className="container">
       <header className="jumbotron">
@@ -19,12 +19,12 @@ const Profile = () => {
       </p>
       <strong>Authorities:</strong>
       <ul>
-        {currentUser.roles &&
-          currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
+        {/* {currentUser.roles &&
+          currentUser.roles.map((role, index) => <li key={index}>{role}</li>)} */}
       </ul>
     </div>
-  );*/
-
+  );
+/*
   return (
     <div className="container">
       <header className="jumbotron">
@@ -33,7 +33,7 @@ const Profile = () => {
         </h3>
       </header>
     </div>
-  );
+  ); */
 };
 
 export default Profile;
