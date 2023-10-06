@@ -12,7 +12,7 @@ const register = (username, email, password) => {
 
 const dummyResponse={
   "user_id": 1,
-  "roles": "ROLE_ADMIN",
+  "roles": "ROLE_USER",
   "email": "a@gmail.com",
   "username": "sagar",
   "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJyb2xlcyI6IlJPTEVfQURNSU4iLCJlbWFpbCI6ImFAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzYWdhciIsInN1YiI6InNhZ2FyIiwiaWF0IjoxNjk2NTMwMjQ3LCJleHAiOjE2OTY1MzIwNDd9.sOY6t5SNXrPJzhj3V8PWVeOvel2f5p3yWnfOYlxMafs"

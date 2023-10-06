@@ -12,7 +12,7 @@ import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
-
+import AdminBoard from "./components/DashBoards/AdminBoard";
 //import AuthVerify from "./common/AuthVerify";
 import EventBus from "./common/EventBus";
 
@@ -41,7 +41,6 @@ const App = () => {
 
   const logOut = () => {
     AuthService.logout();
-    setShowModeratorBoard(false);
     setShowAdminBoard(false);
     setCurrentUser(undefined);
   };
@@ -49,7 +48,6 @@ const App = () => {
    return (
      <div>
        <nav className="navbar navbar-expand navbar-dark bg-dark">
-        <h1>HHHHHHHH</h1>
          <Link to={"/"} className="navbar-brand">
          </Link>
          <div className="navbar-nav mr-auto">
@@ -61,13 +59,18 @@ const App = () => {
              </li>
            )}
            
-           {showAdminBoard && (
+           {/* {showAdminBoard && (
              <li className="nav-item">
                <Link to={"/admin"} className="nav-link">
                  Admin Board
                </Link>
              </li>
-           )}
+           )} */}
+
+            {showAdminBoard && (
+              <AdminBoard />
+            )}
+
 
            {currentUser && (
              <li className="nav-item">
@@ -95,7 +98,7 @@ const App = () => {
            <div className="navbar-nav ml-auto">
              <li className="nav-item">
                <Link to={"/login"} className="nav-link">
-                 Login1
+                 Login
                </Link>
              </li>
 
