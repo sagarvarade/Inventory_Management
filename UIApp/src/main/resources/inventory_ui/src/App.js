@@ -12,7 +12,7 @@ import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
-
+import AdminBoard from "./components/DashBoards/AdminBoard";
 //import AuthVerify from "./common/AuthVerify";
 import EventBus from "./common/EventBus";
 
@@ -41,7 +41,6 @@ const App = () => {
 
   const logOut = () => {
     AuthService.logout();
-    setShowModeratorBoard(false);
     setShowAdminBoard(false);
     setCurrentUser(undefined);
   };
@@ -60,13 +59,18 @@ const App = () => {
              </li>
            )}
            
-           {showAdminBoard && (
+           {/* {showAdminBoard && (
              <li className="nav-item">
                <Link to={"/admin"} className="nav-link">
                  Admin Board
                </Link>
              </li>
-           )}
+           )} */}
+
+            {showAdminBoard && (
+              <AdminBoard />
+            )}
+
 
            {currentUser && (
              <li className="nav-item">
@@ -118,28 +122,8 @@ const App = () => {
            <Route path="/admin" element={<BoardAdmin />} />
          </Routes>
        </div>
-
-       {/* <AuthVerify logOut={logOut}/> */}
      </div>
    );
-/*
-  return (
-    <div>
-      <nav className="navbar navbar-expand navbar-dark bg-dark">
-         
-      </nav>
-
-      <div className="container mt-3">
-        <Routes>
-          <Route exact path={"/"} element={<Login />} />
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/profile" element={<Profile />} />
-        </Routes>
-      </div>
-</div>
-      {/* <AuthVerify logOut={logOut}/>}
-    
-  )*/
 
 };
 

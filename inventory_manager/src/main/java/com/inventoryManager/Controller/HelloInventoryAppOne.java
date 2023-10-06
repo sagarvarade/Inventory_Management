@@ -24,7 +24,7 @@ public class HelloInventoryAppOne {
 	}
 
 	public Mono<String> getString() {
-
+		
 		return (Mono<String>) webClient.post().uri("post").syncBody(new String()).retrieve().bodyToMono(String.class);
 
 	}

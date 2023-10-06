@@ -7,9 +7,9 @@ import java.net.http.HttpResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
+
+import com.util.Token;
 
 @Component
 public class CallsWithOtherServices {
@@ -17,7 +17,7 @@ public class CallsWithOtherServices {
 
 	//@Autowired
 	//private Environment env;
-
+	Token tk=new Token();
 	private final String SPRING_APP_TWO ="";// env.getProperty("multiapp.springapp2");
 
 	public HttpResponse<String> checkToken(String token) {
@@ -27,6 +27,7 @@ public class CallsWithOtherServices {
 					.header("Authorization", "Bearer " + token).GET().build();
 			HttpClient httpClient = HttpClient.newHttpClient();
 			HttpResponse<String> resp = httpClient.send(request, java.net.http.HttpResponse.BodyHandlers.ofString());
+			
 			return resp;
 		} catch (Exception e) {
 			e.printStackTrace();

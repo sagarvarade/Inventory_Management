@@ -8,10 +8,16 @@ Inventory Management, Multi Module Spring Boot Project for learning purpose
 2. Naming Server        : 7100
 3. API Gateway Server   : 7000  
 4. Inventory Manager    : 7210
+5. UI Application       : 7211
+6. Inventory Notification : 7213
 
 
+Add below to your Java application run configuration to avoid certificate issue, In VM arguments :
 
+-Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true
 
+To change the port of application, In VM arguments :
+-Dserver.port=8021
 
 
 
