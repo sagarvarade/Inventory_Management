@@ -1,21 +1,39 @@
-import React from "react"
-import { Routes, Route, Link } from "react-router-dom";
-import BoardModerator from "../../components/BoardModerator";
-function AdminBoard(){
-    return (
-        <diV>
-            <p>This is admin Board</p>
-                <Link to={"/mod"} className="nav-link">
-                 Moderator Board
-               </Link>
-            
-               <div className="container mt-3">
-                <Routes>
-                    <Route path="/mod" element={<BoardModerator />} />
-                </Routes>
-            </div>
-        </diV>
-    )
-}
+import React from 'react';
+import { 
+    Nav, 
+    NavLink, 
+    Bars, 
+    NavMenu
+  } from './NavbarElements'; 
 
-export default AdminBoard
+  const AdminBoard = () => { 
+    return ( 
+      <> 
+        <Nav> 
+          <Bars />
+          <NavMenu> 
+            <NavLink to='/about' activeStyle> 
+              Admin Board 
+            </NavLink> 
+            <NavLink to='/events' activeStyle> 
+              Events 
+            </NavLink> 
+            <NavLink to='/annual' activeStyle> 
+              Annual Report 
+            </NavLink> 
+            <NavLink to='/team' activeStyle> 
+              Teams 
+            </NavLink> 
+            <NavLink to='/blogs' activeStyle> 
+              Blogs 
+            </NavLink> 
+            <NavLink to='/sign-up' activeStyle> 
+              Sign Up 
+            </NavLink>
+          </NavMenu>
+        </Nav> 
+      </> 
+    ); 
+  }; 
+    
+  export default AdminBoard;

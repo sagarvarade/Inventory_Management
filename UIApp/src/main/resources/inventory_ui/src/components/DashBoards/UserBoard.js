@@ -1,21 +1,47 @@
-import React from "react"
-import { Routes, Route, Link } from "react-router-dom";
-import BoardModerator from "../../components/BoardModerator";
-function UserBoard(){
-    return (
-        <diV>
-            <p>This is User Board</p>
-                <Link to={"/mod"} className="nav-link">
-                 Moderator Board
-               </Link>
-            
-               <div className="container mt-3">
-                <Routes>
-                    <Route path="/mod" element={<BoardModerator />} />
-                </Routes>
-            </div>
-        </diV>
-    )
-}
+import React from 'react';
+import { Routes, Route } from "react-router-dom";
+import { 
+    Nav, 
+    NavLink, 
+    Bars, 
+    NavMenu,
+    NavBtn, 
+    NavBtnLink
+  } from './NavbarElements'; 
+import Profile from '../Profile';
+//import AuthService from "../../services/auth.service";
+//import Login from "../../components/Login";
+import CreateWareHouse from '../InventoryForms/CreateWarehouse';
 
-export default UserBoard
+const logOut = () => {
+  alert("log out")
+};
+
+  const UserBoard = () => { 
+    return ( 
+      <div> 
+        <Nav> 
+          <Bars />
+          <NavMenu> 
+            <NavLink to='/about' activestyle> 
+              User Board 
+            </NavLink>
+            <NavLink to='/createwarehouse' activestyle> 
+              Create ware house 
+            </NavLink>
+            <NavBtn> 
+              <NavBtnLink onClick={logOut}>Log out</NavBtnLink> 
+            </NavBtn> 
+          </NavMenu>
+        </Nav>
+        <div>
+         <Routes>
+           <Route exact path="/about" element={<Profile />} />
+           <Route exact path="/createwarehouse" element={<CreateWareHouse />} />
+         </Routes>
+         </div>
+      </div> 
+    ); 
+  }; 
+    
+  export default UserBoard;

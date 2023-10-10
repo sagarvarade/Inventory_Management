@@ -6,7 +6,7 @@ const Profile = () => {
 
   return (
     <div className="container">
-      <header className="jumbotron">
+      <header>
         <h3>
           <strong>{currentUser.username}</strong> Profile
         </h3>
@@ -22,16 +22,6 @@ const Profile = () => {
       </p>
     </div>
   );
-/*
-  return (
-    <div className="container">
-      <header className="jumbotron">
-        <h3>
-           Profile .............
-        </h3>
-      </header>
-    </div>
-  ); */
 };
 
 export default Profile;
