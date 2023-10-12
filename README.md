@@ -19,6 +19,10 @@ Add below to your Java application run configuration to avoid certificate issue,
 To change the port of application, In VM arguments :
 -Dserver.port=8021
 
+To create docker image of any spring boot app , Add below command in run configuration
+spring-boot:build-image
+
+
 
 
 DB insert for Auth DB:
